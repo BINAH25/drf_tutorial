@@ -51,3 +51,10 @@ def advocate_detail(request,username):
         advocate = Advocate.objects.get(username=username)
         advocate.delete()
         return Response('user deleted')
+
+@api_view(['GET','POST'])
+def company_list(request):
+    if request.method == 'GET':
+        companies = Company.objects.all()
+        serializer = CompanySerializer(companies, many=True)
+        return Response(serializer.data)
