@@ -14,7 +14,7 @@ def api_home(request):
     return Response(data)
 
 @api_view(['GET','POST'])
-@permission_classes([IsAuthenticated])
+##@permission_classes([IsAuthenticated])
 def advocate_list(request):
     if request.method == 'GET':
         query = request.GET.get('query')
